@@ -1,0 +1,79 @@
+// 参考了 GitHub 主题色
+:root {
+    --body-color: #fff;
+    --text-color: #1f2328;
+    --border-color: #d1d9e0;
+    --navigation-color: #f6f8fa;
+    --primary-color:#0969da;
+}
+
+body.colorscheme-dark {
+    --body-color: #0d1117;
+    --text-color: #f0f6fc;
+    --border-color: #3d444d;
+    --navigation-color: #010409;
+    --primary-color:#4493f8;
+}
+
+body {
+    background-color: var(--body-color) !important;
+    color: var(--text-color) !important;
+    font-family: initial !important;
+}
+
+// 处理默认的字体第一个汉字显示问题
+.navigation a,
+.navigation span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: initial !important;
+}
+
+// a 标签下划线距离
+a {
+    text-underline-offset: 0.3rem;
+}
+
+// 导航栏文字颜色
+.navigation a,
+.navigation span {
+    color: var(--text-color) !important;
+    &:hover{
+        color: var(--primary-color) !important;
+    }
+}
+
+// 文章列表标题下划线
+body .content .list ul li .title {
+    text-decoration: underline;
+}
+
+// header 导航栏样式
+.navigation {
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--navigation-color) !important;
+}
+
+// 首页头像
+.avatar img {
+    border: 1px solid var(--border-color);
+}
+
+.post-content a{
+    color: var(--primary-color) !important;
+    &:hover{
+        color: var(--primary-color) !important;
+        text-decoration: underline;
+    }
+}
+
+.footer a{
+    color: var(--primary-color) !important;
+    &:hover{
+        color: var(--primary-color) !important;
+    }
+}
