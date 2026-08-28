@@ -1,0 +1,44 @@
+name: Release
+on:
+  push:
+    tags:
+      - 'v*'
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          # submodules: recursive # git submodule update --init --recursive #  Git 子模块管理主题
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.27'
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: 'latest'
+          extended: true
+      - name: Fetch Hugo Modules
+        # run: hugo mod get -u
+        run: hugo mod get # 不需要更新模块，仅拉取锁定版本可改用此行
+      - name: Build Hugo Site
+        run: |
+          hugo --minify --baseURL "https://awydd.com/"
+      - name: Package Release Assets
+        run: |
+          tar -czf blog-${{ github.ref_name }}.tar.gz -C public .
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v3
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: Release ${{ github.ref_name }}
+          generate_release_notes: true
+          files: |
+            blog-${{ github.ref_name }}.tar.gz
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
