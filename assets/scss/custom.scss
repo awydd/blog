@@ -19,6 +19,7 @@ body {
     background-color: var(--body-color) !important;
     color: var(--text-color) !important;
     font-family: initial !important;
+    font-size: 2rem !important;
 }
 
 // 处理默认的字体第一个汉字显示问题
@@ -76,4 +77,8 @@ body .content .list ul li .title {
     &:hover{
         color: var(--primary-color) !important;
     }
+}
+
+article p{
+    margin: 0 !important;
 }
