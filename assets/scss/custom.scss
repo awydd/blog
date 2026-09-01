@@ -1,22 +1,26 @@
 // 参考了 GitHub 主题色
 :root {
-    --body-color: #fff;
+    --body-bg-color: #fff;
     --text-color: #1f2328;
     --border-color: #d1d9e0;
     --navigation-color: #f6f8fa;
-    --primary-color:#0969da;
+    --primary-color: #0969da;
+    --icon-color: #59636e;
+    --tag-bg-color: #f0f1f2;
 }
 
 body.colorscheme-dark {
-    --body-color: #0d1117;
+    --body-bg-color: #0d1117;
     --text-color: #f0f6fc;
     --border-color: #3d444d;
     --navigation-color: #010409;
-    --primary-color:#4493f8;
+    --primary-color: #4493f8;
+    --icon-color: #9198a1;
+    --tag-bg-color: #1e232a;
 }
 
 body {
-    background-color: var(--body-color) !important;
+    background-color: var(--body-bg-color) !important;
     color: var(--text-color) !important;
     font-family: initial !important;
     font-size: 2rem !important;
@@ -34,6 +38,32 @@ h6 {
     font-family: initial !important;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--text-color) !important;
+}
+
+.list ul li .title {
+    color: var(--text-color) !important;
+}
+
+.list ul li .title:hover,
+.list ul li .title:focus {
+    color: var(--primary-color) !important;
+}
+
+.post-meta i {
+    color: var(--icon-color) !important;
+}
+
+.content .post .post-meta .tags .tag {
+    background-color: var(--tag-bg-color);
+}
+
 // a 标签下划线距离
 a {
     text-underline-offset: 0.3rem;
@@ -43,7 +73,8 @@ a {
 .navigation a,
 .navigation span {
     color: var(--text-color) !important;
-    &:hover{
+
+    &:hover {
         color: var(--primary-color) !important;
     }
 }
@@ -64,21 +95,23 @@ body .content .list ul li .title {
     border: 1px solid var(--border-color);
 }
 
-.post-content a{
+.post-content a {
     color: var(--primary-color) !important;
-    &:hover{
+
+    &:hover {
         color: var(--primary-color) !important;
         text-decoration: underline;
     }
 }
 
-.footer a{
+.footer a {
     color: var(--primary-color) !important;
-    &:hover{
+
+    &:hover {
         color: var(--primary-color) !important;
     }
 }
 
-article p{
+article p {
     margin: 0 !important;
 }
